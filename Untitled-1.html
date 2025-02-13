@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script async src="https://cse.google.com/cse.js?cx=36f2e44d744244966">
+    </script>
+    <div class="gcse-searchresults-only"></div>
+<title>Siga Browser</title>
+<style>
+body {
+  font-family: sans-serif;
+}
+#tabs {
+  display: flex;
+}
+.tab {
+  padding: 10px;
+  border: 1px solid gray;
+  margin-right: 5px;
+  cursor: pointer;
+}
+.tab.active {
+  background-color: lightgray;
+}
+#content {
+  padding: 10px;
+  border: 1px solid gray;
+}
+</style>
+</head>
+<body>
+
+<h1>Siga Browser</h1>
+
+<div id="tabs">
+  <div class="tab active" data-tab="1">Tab 1</div>
+  <div class="tab" data-tab="2">Tab 2</div>
+</div>
+
+<div id="content">
+  <div id="tab1" class="tab-content active">
+    <h2>Tab 1</h2>
+    <p>This is the content for tab 1.</p>
+    <div id="cse-1" class="gsc-control-cse">Loading...</div>
+  </div>
+  <div id="tab2" class="tab-content">
+    <h2>Tab 2</h2>
+    <p>This is the content for tab 2.</p>
+    <div id="cse-2" class="gsc-control-cse">Loading...</div>
+  </div>
+</div>
+
+<script>
+const tabs = document.querySelectorAll('.tab');
+const tabContents = document.querySelectorAll('.tab-content');
+
+tabs.forEach(tab => {
+  tab.addEventListener('click', () => {
+    const tabId = tab.dataset.tab;
+
+    tabs.forEach(t => t.classList.remove('active'));
+    tabContents.forEach(tc => tc.classList.remove('active'));
+
+    tab.classList.add('active');
+    document.getElementById(`tab${tabId}`).classList.add('active');
+  });
+});
+
+  (function() {
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = 'https://cse.google.com/cse.js?cx=YOUR_CSE_ID';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+
+</body>
+</html>
